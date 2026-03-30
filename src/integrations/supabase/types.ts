@@ -14,7 +14,150 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      app_settings: {
+        Row: {
+          id: string
+          key: string
+          updated_at: string
+          value: Json
+        }
+        Insert: {
+          id?: string
+          key: string
+          updated_at?: string
+          value?: Json
+        }
+        Update: {
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: Json
+        }
+        Relationships: []
+      }
+      app_users: {
+        Row: {
+          account_expires_at: string | null
+          avatar_url: string | null
+          ban_reason: string | null
+          created_at: string
+          display_name: string | null
+          email: string
+          id: string
+          is_banned: boolean
+          is_permanent: boolean
+          last_login: string | null
+          user_id: string
+        }
+        Insert: {
+          account_expires_at?: string | null
+          avatar_url?: string | null
+          ban_reason?: string | null
+          created_at?: string
+          display_name?: string | null
+          email: string
+          id?: string
+          is_banned?: boolean
+          is_permanent?: boolean
+          last_login?: string | null
+          user_id: string
+        }
+        Update: {
+          account_expires_at?: string | null
+          avatar_url?: string | null
+          ban_reason?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string
+          id?: string
+          is_banned?: boolean
+          is_permanent?: boolean
+          last_login?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      iptv_credentials: {
+        Row: {
+          bot_source: string | null
+          created_at: string
+          expires_at: string | null
+          host: string
+          id: string
+          is_active: boolean
+          password: string
+          username: string
+        }
+        Insert: {
+          bot_source?: string | null
+          created_at?: string
+          expires_at?: string | null
+          host?: string
+          id?: string
+          is_active?: boolean
+          password: string
+          username: string
+        }
+        Update: {
+          bot_source?: string | null
+          created_at?: string
+          expires_at?: string | null
+          host?: string
+          id?: string
+          is_active?: boolean
+          password?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      share_tokens: {
+        Row: {
+          created_at: string
+          created_by: string
+          episode_id: number | null
+          episode_num: number | null
+          expires_at: string
+          extension: string | null
+          id: string
+          season_num: number | null
+          stream_id: number
+          stream_title: string
+          stream_type: string
+          stream_url: string
+          token: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          episode_id?: number | null
+          episode_num?: number | null
+          expires_at?: string
+          extension?: string | null
+          id?: string
+          season_num?: number | null
+          stream_id: number
+          stream_title: string
+          stream_type: string
+          stream_url: string
+          token?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          episode_id?: number | null
+          episode_num?: number | null
+          expires_at?: string
+          extension?: string | null
+          id?: string
+          season_num?: number | null
+          stream_id?: number
+          stream_title?: string
+          stream_type?: string
+          stream_url?: string
+          token?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
