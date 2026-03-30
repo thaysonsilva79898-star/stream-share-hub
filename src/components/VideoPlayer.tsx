@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause, Maximize, SkipBack, SkipForward, ArrowLeft, Volume2, VolumeX, MoreVertical, Share2, ExternalLink, X, Check, Copy } from "lucide-react";
+import CastButton from "@/components/CastButton";
 import mpegts from "mpegts.js";
 import { useApp } from "@/contexts/AppContext";
 import { saveContinueWatching, getContinueWatching } from "@/lib/storage";
@@ -398,7 +399,8 @@ const VideoPlayer: React.FC = () => {
               </button>
               <h2 className="text-foreground font-semibold text-lg truncate">{playerState.title}</h2>
               {isLive && <span className="px-2 py-0.5 rounded bg-destructive text-destructive-foreground text-xs font-bold">AO VIVO</span>}
-              <div className="ml-auto relative">
+              <div className="ml-auto flex items-center gap-2 relative">
+                <CastButton videoUrl={playerState.url} />
                 <button data-focusable onClick={() => setShowMenu(!showMenu)} className="tv-focusable w-10 h-10 rounded-full bg-card/60 flex items-center justify-center">
                   <MoreVertical className="w-5 h-5 text-foreground" />
                 </button>
